@@ -28,7 +28,7 @@ createMovie = (req, res) => {
     .catch(error => {
       return res.status(400).json({
         error,
-        message: 'There was a problem',
+        message: 'Movie not created',
       })
     })
 }
@@ -114,7 +114,6 @@ module.exports = {
   createMovie,
   updateMovie,
   deleteMovie,
-  getMovie,
   getMovies,
   getMovieById,
 }
