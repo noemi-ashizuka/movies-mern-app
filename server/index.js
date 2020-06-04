@@ -2,6 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const db = require('./db')
+const movieRouter = require('./routes/movie-router')
 const app = express()
 const apiPort = 3000
 
@@ -14,5 +15,7 @@ db.on('error', console.error.bind({ extended: true }))
 app.get('/', (req, res) => {
   res.send('Hello World from index js')
 })
+
+app.use('/api', movieRouter)
 
 app.listen(apiPort, () => console.log(`Server running on port ${apiPort}`))
